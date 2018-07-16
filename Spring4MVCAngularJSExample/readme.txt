@@ -1,7 +1,8 @@
 This project is copied from http://websystique.com/springmvc/spring-mvc-4-angularjs-example to learn about integration of Spring MVC 
 and angularjs.
 
-I made some files.  One change is to add a tomcat plugin into the pom.xml file so it can be deployed to the local tomcat server using maven. 
+I modified some files.  One change is to add a tomcat plugin into the pom.xml file so the project can be deployed to the local tomcat server 
+using maven. 
 
 Usage:  
   In eclipse,  run the following
