@@ -1,0 +1,19 @@
+Some techinical notes.
+1. Syntax of "imports"
+Below are some examples of "imports":
+  import { Component, OnDestroy, OnInit } from '@angular/core';
+  import { CarService } from '../shared/car/car.service';
+  
+  In the first import, the "core" is a folder in the folder node_modules/@angular. This folder has many subfolders and files.
+  There is one file 
+      public_api.d.ts 
+  This file has one line 
+      export * from './src/core'; 
+  Here src/core is a folder. In this folder, there is the file
+      core.d.ts
+  This file has multiple exports statements.  I think these statements specifies what artifacts are exported.
+  
+  In the second import, "car.service" is not a folder. It must imply the file car.service.ts. And this file has statements
+  that specify what are exported. 
+  
+  So the above shows two ways of how to use "import".
