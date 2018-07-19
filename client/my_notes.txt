@@ -17,3 +17,7 @@ Below are some examples of "imports":
   that specify what are exported. 
   
   So the above shows two ways of how to use "import".
+  
+  2. Some modifications on the original files
+  Some files copied from the original files does not compile. Also some modules in node_modules give compilation error. I modified them. 
+  The error in the application is because it uses different version of modules in node_modules. I modified the code a little bit so it compiles with the modules in node_modules. The error in a module in node_module is caused by the comment line in the .json file. The comment line may not be allowed in json files. So I just deleted these comment lines. 
