@@ -9,3 +9,8 @@ The client is written using Angular 5 and runs on localhost:4200.
 
 The client calls a service that gets data from localhost:8080. So there is a cross-origin issue. The server
 implements the cross-origin to allow the action.  
+
+To run the example,  do the following:
+  1. Run DemoApplication.java as an application. This will make localhost:8080 work.
+  2. On command line, run "ng serve" in the "client" folder.  This will make localhost:4200 work. 
+  3. Open a browser and use the URL localhost:4200. The page will show a list of cars. 
