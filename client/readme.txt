@@ -5,15 +5,16 @@ The example is to integrate Spring boot 2 and Angular 5.
 
 The server is written using Spring boot and runs on localhost:8181.
 
-The client is written using Angular 5 and runs on localhost:4200.
+The client is written using Angular 5. It runs on a different port of localhost. The port number can be configured. 
+The default port number is 4200.
 
 The client calls a service that gets data from localhost:8181. So there is a cross-origin issue. The server
 implements the cross-origin to allow the action.  
 
 To run the example,  do the following:
   1. Run DemoApplication.java as an application. This will make localhost:8181 work.
-  2. On command line, run "ng serve" in the "client" folder.  This will make localhost:4200 work. 
-  3. Open a browser and use the URL localhost:4200. The page will show a list of cars. 
+  2. On command line, run "ng serve --port 8080" in the "client" folder.  This will make localhost:8080 work. 
+  3. Open a browser and use the URL localhost:8080. The page will show a list of cars. 
   
  Notes:
  1. To actually run the example, nodejs, npm, etc need to be installed on the local laptop. 
