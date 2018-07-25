@@ -35,5 +35,5 @@ To deploy the client application to Tomcat, do the following:
  1. It seems that with the above deployment, the default port number 4200 was not relevant now.
  2. The above deployment uses two servers: Tomcat and the Spring boot embedded server. So there is the cross-origin
     issue here. If you want to use a different port number for Tomcat, do not forget to modify the port number 
-    in the car.service.ts accordingly!  
+    in the car.service.ts and CarRepository accordingly!  
  issue. If you want to 
