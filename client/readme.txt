@@ -22,6 +22,7 @@ To run the example,  do the following:
     the Angular CLI tool.  
     
 To deploy the client application to Tomcat, do the following:
+=============================================================
  1. Go to the client folder. Execute the command "ng build --prod". This will generate the dist folder in client.
  2. Copy the folder client in dist to the Tomcat webapps folder.
  3. In the webapps/client folder, there is the file index.html. Modify the line 
