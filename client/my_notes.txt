@@ -1,5 +1,8 @@
-Some techinical notes.
+                                       
+                                       Some Technical Notes
+
 1. Syntax of "imports"
+
 Below are some examples of "imports":
   import { Component, OnDestroy, OnInit } from '@angular/core';
   import { CarService } from '../shared/car/car.service';
@@ -19,5 +22,106 @@ Below are some examples of "imports":
   So the above shows two ways of how to use "import".
   
   2. Some modifications on the original files
+  
   Some files copied from the original files does not compile. Also some modules in node_modules give compilation error. I modified them. 
-  The error in the application is because it uses different version of modules in node_modules. I modified the code a little bit so it compiles with the modules in node_modules. The error in a module in node_module is caused by the comment line in the .json file. The comment line may not be allowed in json files. So I just deleted these comment lines. 
+  The error in the application is because it uses different version of modules in node_modules. I modified the code a little bit so it 
+  compiles with the modules in node_modules. The error in a module in node_module is caused by the comment line in the .json file. 
+  The comment line may not be allowed in json files. So I just deleted these comment lines. 
+  
+  3. How Routes work?
+  
+  Example code is below.
+  
+  const appRoutes: Routes = [
+  { path: '', redirectTo: '/car-list', pathMatch: 'full' },
+  {
+    path: 'car-list',
+    component: CarListComponent
+  },
+  {
+    path: 'car-add',
+    component: CarEditComponent
+  },
+  {
+    path: 'car-edit/:id',
+    component: CarEditComponent
+  }
+];
+  
+  So you specify path and component or redirectTo. 
+  To invoke a route:
+    (1) Use submit button:
+        <button mat-fab color="primary" [routerLink]="['/car-add']">Add</button>
+    (2) Use href link:
+        <a mat-button routerLink="/car-list">Cancel</a>
+    (3) Use href link with parameters:
+        <a mat-button [routerLink]="['/car-edit', car.id]">{{car.name}}</a>  
+    
+  Then the corresponding component will process the request using the method ngOnInit():
+  
+   ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      const id = params['id'];
+      if (id) {
+        this.carService.get(id).subscribe((car: any) => {
+          if (car) {
+            this.car = car;
+            this.car.href = car._links.self.href;
+            this.giphyService.get(car.name).subscribe(url => car.giphyUrl = url);
+          } else {
+            console.log(`Car with id '${id}' not found, returning to list`);
+            this.gotoList();
+          }
+        });
+      }
+    });
+  }
+  
+  Depending on the passed parameters, it will decide what to show.
+  
+  4. How to invoke service layer?
+  
+  (1) Use form directive (ngSubmit): 
+     <form #carForm="ngForm" (ngSubmit)="save(carForm.value)">
+  (2) Use event (click):
+     <button mat-raised-button color="secondary" (click)="remove(car.href)"
+              *ngIf="car.href" type="button">Delete</button>
+  
+    These directives specify a method name and parameters. These methods are defined in the corresponding component:
+   
+   car-edit.component.ts: 
+   ======================
+     save(form: NgForm) {
+        this.carService.save(form).subscribe(result => {
+        this.gotoList();
+        }, error => console.error(error));
+     }  
+
+     remove(href) {
+        this.carService.remove(href).subscribe(result => {
+        this.gotoList();
+        }, error => console.error(error));
+     }
+  
+  The component calls the injected service.
+  
+  The service uses its HttpClient to call remote server.
+  
+  car.service.ts
+  ===============
+  constructor(private http: HttpClient) {
+  }
+  
+  save(car: any): Observable<any> {
+    let result: Observable<Object>;
+    if (car['href']) {
+      result = this.http.put(car.href, car);
+    } else {
+      result = this.http.post(this.CAR_API, car);
+    }
+    return result;
+  }
+
+  remove(href: string) {
+    return this.http.delete(href);
+  }
