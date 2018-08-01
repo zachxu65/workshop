@@ -100,7 +100,7 @@
 					<warSourceDirectory>src/main/webapp</warSourceDirectory>
 					<warName>mvcAngular</warName>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					
+
 				</configuration>
 			</plugin>
 			<plugin>
@@ -114,6 +114,43 @@
 					<password>s3cret</password>
 					<update>true</update>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.5.0</version>
+				<executions>
+					<execution>
+						<id>exec-npm-install</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<workingDirectory>${project.basedir}/src/main/ngapp</workingDirectory>
+							<executable>npm.cmd</executable>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+						</configuration>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>exec-npm-ng-build</id>
+						<phase>generate-sources</phase>
+						<configuration>
+							<workingDirectory>${project.basedir}/src/main/ngapp</workingDirectory>
+							<executable>ng.cmd</executable>
+							<arguments>
+								<argument>build</argument>
+								<argument>--base-href=/mvcAngular/static/</argument>
+							</arguments>
+						</configuration>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 		<finalName>mvcAngular</finalName>
