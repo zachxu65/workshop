@@ -24,9 +24,9 @@ This application is based on https://developer.okta.com/blog/2017/12/04/basic-cr
 
 Some notes about it:
 1. It uses the angular material package which is not included in the node_modules by default. You need to install it
-   using the following command in the "ngapp" directory:
+   using the following command in the "ngapp" directory:<br/>
     npm install --save-exact @angular/material @angular/cdk
-2. The angular.json file is modified with the following to change the output directory of the build command:
+2. The angular.json file is modified with the following to change the output directory of the build command:  
     "outputPath": "../webapp/static"
 
 ## The Spring MVC application
