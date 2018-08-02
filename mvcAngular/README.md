@@ -2,7 +2,8 @@
 
 This project is to integrate Spring MVC with Angular 5, and build a single war file to deploy to Tomcat8 server. 
 Angular 5 is the front end. Spring MVC is back end.  Angular 5 uses HttpClient to call the restful services provided by Spring MVC.
-The front end and the back end can be deployed as two separated applications. But this project puts them together and builds them into one single war file.
+The front end and the back end can be deployed as two separated applications. But this project puts them together and builds them into 
+one single war file.
  
 ## The Better Approach for Deploying Angular with Spring MVC
 
