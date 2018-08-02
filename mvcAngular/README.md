@@ -36,6 +36,7 @@ This application is based on http://websystique.com/springmvc/spring-mvc-4-angul
 ## Build and Deploy
   Just run maven "-e clean tomcat:deploy" in eclipse. It should create a war file mvcAngular.war and deploy it to the
   Tomcat server. 
-  Then open a browser(Chrome, Firefox, Edge, but not IE). Go to the url localhost:8080/mvcAngular/static/index.html
+  Then open a browser(Chrome, Firefox, Edge, but not IE). Go to the url  
+   localhost:8080/mvcAngular/static/index.html   
   It should display a list of cars and their images. 
   Note that the functions to add or delete cars are not working yet. But they can be implemented. 
