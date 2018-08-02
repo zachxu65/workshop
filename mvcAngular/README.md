@@ -20,6 +20,8 @@ processes. The two processes can not use the same port number.
 ## The Angular 5 application
 
 This application is based on https://developer.okta.com/blog/2017/12/04/basic-crud-angular-and-spring-boot. 
+
+
 Some notes about it:
 1. It uses angular material package which is not included in the node_modules by default. You need to install it
    using the following command in the "ngapp" directory:
