@@ -7,7 +7,7 @@ The front end and the back end can be deployed as two separated applications. Bu
 ## The Better Approach for Deploying Angular with Spring MVC
 
 The better approach for deploying the projects is to deploy the Angular application and the Spring MVC separately. The two applications
-should be created and built separately. The source files should be in different project folders. 
+should be created and built separately. Their source files should be in different project folders. 
 
 
 The Angular 5 project can be built and deployed to Tomcat using the port number 8080. And the Spring MVC project can be built and 
