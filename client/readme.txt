@@ -13,8 +13,13 @@ implements the cross-origin to allow the action.
 
 To run the example,  do the following:
   1. Run DemoApplication.java in the project spring-server as an application. This will make localhost:8181 work.
-  2. On command line, run "ng serve --port 8080" in the "client" folder.  This will make localhost:8080 work. 
-  3. Open a browser and use the URL localhost:8080. The page will show a list of cars. 
+  2. Modify the file app/shared/car/car.service.ts. Change the line 
+       return this.http.get(this.API + '/mvcAngular/cars');
+        to
+       return this.http.get(this.API + '/cool-cars');
+     This is because the first line is for use with the mvcAngular project which is deployed to Tomcat.
+  3. On command line, run "ng serve --port 8080" in the "client" folder.  This will make localhost:8080 work. 
+  4. Open a browser and use the URL localhost:8080. The page will show a list of cars. 
   
  Notes:
  1. To actually run the example, nodejs, npm, etc need to be installed on the local laptop. 
