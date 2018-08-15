@@ -79,6 +79,10 @@ Below are some examples of "imports":
   
   Depending on the passed parameters, it will decide what to show.
   
+  As the result, the <router-outlet></router-outlet> element in the app.component.html file will be replaced by the component html file.
+  So even though it looks that a different page is shown, it is actually the same page with some of its content replaced. It is the so-called
+  Single Page Application (SPA).
+  
   4. How to invoke service layer?
   
   (1) Use form directive (ngSubmit): 
