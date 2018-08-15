@@ -11,7 +11,7 @@ The default port number is 4200.
 The client calls a service that gets data from localhost:8181. So there is a cross-origin issue. The server
 implements the cross-origin to allow the action.  
 
-To run the example,  do the following:
+To run the example using node js server and communicate with the spring boot application in the spring-server project,  do the following:
   1. Run DemoApplication.java in the project spring-server as an application. This will make localhost:8181 work.
   2. Modify the file app/shared/car/car.service.ts. Change the line 
        return this.http.get(this.API + '/mvcAngular/cars');
